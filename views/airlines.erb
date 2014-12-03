@@ -1,0 +1,33 @@
+<div>
+	<h3>How many different airlines are represented in this dataset?</h3>
+	<% @carriers.each do |result| %>
+		<li><%= result['count'] %></li>
+	<% end %>
+
+	<h3>Which airline had the largest quantity of delayed arriving flights? Which had the fewest?</h3>
+	<% @mostleast.each do |result| %>
+		<li><%= result['carrier'] %> - <%= result['count'] %> </li>
+	<% end %>
+
+	<h3>Which departing airport had the highest number of delayed flights? Which had the fewest?</h3>
+	<% @departeddelays.each do |result| %>
+		<li><%= result['origin_city_name'] %> - <%= result['count'] %> </li>
+	<% end %>
+
+	<h3>Which arriving airport had the highest number of delayed flights? Which had the fewest?</h3>
+	<% @arrivingdelays.each do |result| %>
+		<li><%= result['dest_city_name'] %> - <%= result['count'] %> </li>
+	<% end %>
+
+	<h3>What was the average number of minutes late across all airlines?</h3>
+	<ul>
+	<% @averagemin.each do |result| %>
+		<li><%= result['average_minutes_late'] %> </li>
+	<% end %>
+	</ul>
+
+	<h3>What was the average number of minutes late for each airline?</h3>
+	<% @avglateairlines.each do |result| %>
+		<li><%= result['carrier'] %> - <%= result['average_minutes_late'] %> </li>
+	<% end %>
+</div>
