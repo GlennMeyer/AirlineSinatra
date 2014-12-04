@@ -1,33 +1,46 @@
 <div>
 	<h3>How many different airlines are represented in this dataset?</h3>
-	<% @carriers.each do |result| %>
-		<li><%= result['count'] %></li>
-	<% end %>
+	<ul>
+		<li><%= @carriers[0]['count'] %></li>
+	</ul>
 
 	<h3>Which airline had the largest quantity of delayed arriving flights? Which had the fewest?</h3>
-	<% @mostleast.each do |result| %>
-		<li><%= result['carrier'] %> - <%= result['count'] %> </li>
-	<% end %>
+	<table>
+		<tr>
+			<td><%= @mostleast[0]['carrier'] %></td><td><%= @mostleast[0]['count'] %></td>
+		</tr>
+		<tr>
+			<td><%= @mostleast[13]['carrier'] %></td><td><%= @mostleast[13]['count'] %></td>
+		</tr>
+	</table>
 
 	<h3>Which departing airport had the highest number of delayed flights? Which had the fewest?</h3>
-	<% @departeddelays.each do |result| %>
-		<li><%= result['origin_city_name'] %> - <%= result['count'] %> </li>
-	<% end %>
+	<table>
+		<tr>
+			<td><%= @departeddelays[0]['origin_city_name'] %></td><td><%= @departeddelays[0]['count'] %></td>
+		</tr>
+			<td><%= @departeddelays[13]['origin_city_name'] %></td><td><%= @departeddelays[13]['count'] %></td>
+	</table>
 
 	<h3>Which arriving airport had the highest number of delayed flights? Which had the fewest?</h3>
-	<% @arrivingdelays.each do |result| %>
-		<li><%= result['dest_city_name'] %> - <%= result['count'] %> </li>
-	<% end %>
+	<table>
+		<tr>
+			<td><%= @arrivingdelays[0]['dest_city_name'] %></td><td><%= @arrivingdelays[0]['count'] %></td>
+		</tr>
+		<tr>
+			<td><%= @arrivingdelays[13]['dest_city_name'] %></td><td><%= @arrivingdelays[13]['count'] %></td>
+		</tr>
+	</table>
 
 	<h3>What was the average number of minutes late across all airlines?</h3>
 	<ul>
-	<% @averagemin.each do |result| %>
-		<li><%= result['average_minutes_late'] %> </li>
-	<% end %>
+		<li><%= @averagemin[0]['average_minutes_late'].to_f.round(2) %> </li>
 	</ul>
 
 	<h3>What was the average number of minutes late for each airline?</h3>
-	<% @avglateairlines.each do |result| %>
-		<li><%= result['carrier'] %> - <%= result['average_minutes_late'] %> </li>
-	<% end %>
+	<table>
+		<% @avglateairlines.each do |result| %>
+			<tr><td><%= result['carrier'] %></td><td><%= result['average_minutes_late'].to_f.round(2) %></td></tr>
+		<% end %>
+	</table>
 </div>
