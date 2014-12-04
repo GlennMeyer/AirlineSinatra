@@ -4,11 +4,7 @@ require 'sinatra/reloader'
 
 set :bind, '0.0.0.0'
 
-get '/' do  
-  erb :index
-end
-
-get '/airlines' do
+get '/' do
   db = PG.connect(host: 'localhost', dbname: 'on_time_performance')
 
   qone = <<-SQL

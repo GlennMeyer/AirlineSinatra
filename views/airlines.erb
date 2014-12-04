@@ -1,8 +1,6 @@
 <div>
 	<h3>How many different airlines are represented in this dataset?</h3>
-	<ul>
-		<li><%= @carriers[0]['count'] %></li>
-	</ul>
+	<p><%= @carriers[0]['count'] %></p>
 
 	<h3>Which airline had the largest quantity of delayed arriving flights? Which had the fewest?</h3>
 	<table>
@@ -33,9 +31,7 @@
 	</table>
 
 	<h3>What was the average number of minutes late across all airlines?</h3>
-	<ul>
-		<li><%= @averagemin[0]['average_minutes_late'].to_f.round(2) %> </li>
-	</ul>
+	<p><%= @averagemin[0]['average_minutes_late'].to_f.round(2) %></p>
 
 	<h3>What was the average number of minutes late for each airline?</h3>
 	<table>
